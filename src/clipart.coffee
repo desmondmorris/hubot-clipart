@@ -16,7 +16,7 @@ clipartMe = (msg, cb) ->
 
   q = query: msg.match[1]
 
-  msg.http('http://openclipart.org/search/json/')
+  msg.http('https://openclipart.org/search/json/')
     .query(q)
     .get() (err, res, body) ->
       data = JSON.parse(body)
