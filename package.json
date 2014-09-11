@@ -1,7 +1,7 @@
 {
   "name": "hubot-clipart",
   "description": "A Hubot script posts clip art images from openclipart.org API",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Desmond Morris <hi@desmondmorris.com>",
   "license": "MIT",
 
