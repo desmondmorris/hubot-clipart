@@ -3,18 +3,23 @@
 #
 # Commands:
 #   hubot clipart me <query> - Queries openclipart for <query> and returns a random result.
+#   Aliases:
+#     hubot clipart <query>
+#     hubot clip me <query>
+#     hubot clip <query>
 #
 # Author:
-#   desmondmorris
+#   Original - desmondmorris
+#   Improved by Dylan Davidson
 
 module.exports = (robot) ->
-  robot.respond /clipart(?: me)? (.*)/i, (msg) ->
+  robot.respond /(?: clip|clipart)(?: me)? (.*)/i, (msg) ->
     clipartMe msg, (url) ->
       msg.send encodeURI(url)
 
 clipartMe = (msg, cb) ->
 
-  q = query: msg.match[1]
+  q = query: msg.match[1], amount: 5, sort: 'downloads'
 
   msg.http('https://openclipart.org/search/json/')
     .query(q)
